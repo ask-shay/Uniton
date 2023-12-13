@@ -1,5 +1,6 @@
 import { Badge } from "@material-ui/core";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { FavoriteBorderOutlined, Search, ShoppingCartOutlined } from "@material-ui/icons";
+import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
 import React from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
@@ -53,6 +54,12 @@ const Logo = styled.h1`
   font-weight: bold;
   ${mobile({ fontSize: "24px" })}
 `;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
+
 const Right = styled.div`
   flex: 1;
   display: flex;
@@ -69,7 +76,7 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
-  const quantity = useSelector(state => state.cart.quantity)
+  const quantity = useSelector((state) => state.cart.quantity);
   console.log(quantity);
 
   return (
@@ -83,18 +90,37 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
+          <StyledLink to ="http://localhost:3000">
           <Logo>UNITON INDIA.</Logo>
+          </StyledLink>
         </Center>
-        <Right>   
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
-          <Link to="/cart">
-          <MenuItem>
-            <Badge badgeContent={quantity} color="primary">
-              <ShoppingCartOutlined />
-            </Badge>
-          </MenuItem>
-          </Link>
+        <Right>
+          <StyledLink to="/register">
+            <MenuItem>REGISTER</MenuItem>
+          </StyledLink>
+          <StyledLink to="/login">
+            <MenuItem>LOGIN</MenuItem>
+          </StyledLink>
+          <StyledLink to="/setting">
+            <MenuItem>
+            <Person2OutlinedIcon/> 
+            {/* provide a drop down menu for logout / your orders / support  */}
+            </MenuItem>
+          </StyledLink>
+          <StyledLink to="/favourites">
+            <MenuItem>
+            <FavoriteBorderOutlined/> 
+         
+            </MenuItem>
+          </StyledLink>
+
+          <StyledLink to="/cart">
+            <MenuItem>
+              <Badge badgeContent={quantity} color="primary">
+                <ShoppingCartOutlined />
+              </Badge>
+            </MenuItem>
+          </StyledLink>
         </Right>
       </Wrapper>
     </Container>
