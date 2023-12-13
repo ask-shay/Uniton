@@ -26,24 +26,27 @@ const Left = styled.div`
   align-items: center;
 `;
 
-const Language = styled.span`
-  font-size: 14px;
-  cursor: pointer;
-  ${mobile({ display: "none" })}
-`;
+// const Language = styled.span`
+//   font-size: 14px;
+//   cursor: pointer;
+//   ${mobile({ display: "none" })}
+// `;
 
 const SearchContainer = styled.div`
-  border: 0.5px solid lightgray;
+  border: 1px solid #f4f0f0;
   display: flex;
   align-items: center;
   margin-left: 25px;
-  padding: 5px;
+  width: 100%;
 `;
 
 const Input = styled.input`
   border: none;
+  padding: 9px;
+  width: 100%;
   ${mobile({ width: "50px" })}
 `;
+
 
 const Center = styled.div`
   flex: 1;
@@ -83,16 +86,16 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Language>EN</Language>
-          <SearchContainer>
-            <Input placeholder="Search" />
-            <Search style={{ color: "gray", fontSize: 16 }} />
-          </SearchContainer>
+        <StyledLink to ="http://localhost:3000">
+          <Logo>UNITON INDIA.</Logo>
+        </StyledLink>
         </Left>
         <Center>
-          <StyledLink to ="http://localhost:3000">
-          <Logo>UNITON INDIA.</Logo>
-          </StyledLink>
+        {/* <Language>EN</Language> */}
+          <SearchContainer>
+            <Input placeholder="Search" />
+            <Search style={{ color: "gray", fontSize: 18}} />
+          </SearchContainer>
         </Center>
         <Right>
           <StyledLink to="/register">
