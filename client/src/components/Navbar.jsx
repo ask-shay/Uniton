@@ -1,7 +1,8 @@
 import { Badge } from "@material-ui/core";
 import { FavoriteBorderOutlined, Search, ShoppingCartOutlined } from "@material-ui/icons";
 import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
-import React from "react";
+import React from "react"; 
+// import React, { useState } from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { useSelector } from "react-redux";
@@ -37,13 +38,14 @@ const SearchContainer = styled.div`
   display: flex;
   align-items: center;
   margin-left: 25px;
-  width: 100%;
+  width: 90%;
 `;
 
 const Input = styled.input`
   border: none;
   padding: 9px;
   width: 100%;
+  margin-right: 10px;
   ${mobile({ width: "50px" })}
 `;
 
@@ -80,21 +82,38 @@ const MenuItem = styled.div`
 
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
-  console.log(quantity);
+  // const [searchQuery, setSearchQuery] = useState('');
+  // const [searchResults, setSearchResults] = useState([]);
+
+  // const handleSearch = async () => {
+  //   try {
+  //     const response = await fetch(`http://localhost:5000/api/products/search?query=${searchQuery}`);
+  //     const data = await response.json();
+  //     setSearchResults(data);
+  //   } catch (error) {
+  //     console.error('Error fetching search results:', error);
+  //   }
+  // };
 
   return (
     <Container>
       <Wrapper>
-        <Left>
-        <StyledLink to ="http://localhost:3000">
-          <Logo>UNITON INDIA.</Logo>
-        </StyledLink>
+      <Left>
+          <StyledLink to="http://localhost:3000">
+            <Logo>UNITON INDIA.</Logo>
+          </StyledLink>
         </Left>
         <Center>
-        {/* <Language>EN</Language> */}
           <SearchContainer>
-            <Input placeholder="Search" />
-            <Search style={{ color: "gray", fontSize: 18}} />
+            <Input
+              placeholder="Search"
+              // value={searchQuery}
+              // onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <Search
+              style={{ color: "#555", fontSize: 20, marginRight: 10, cursor: 'pointer' }}
+              // onClick={handleSearch}
+            />
           </SearchContainer>
         </Center>
         <Right>
