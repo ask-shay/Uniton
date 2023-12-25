@@ -56,6 +56,21 @@ router.get("/find/:id", async (req, res) => {
   }
 });
 
+// // SEARCH PRODUCTS //new changes
+// router.get("/search", async (req, res) => {
+//   const searchQuery = req.query.query;
+
+//   try {
+//     const products = await Product.find({
+//       title: { $regex: new RegExp(searchQuery, 'i') },
+//     });
+
+//     res.status(200).json(products);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
 //GET ALL PRODUCTS
 router.get("/", async (req, res) => {
   const qNew = req.query.new;
